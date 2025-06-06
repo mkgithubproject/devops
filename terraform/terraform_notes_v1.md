@@ -131,3 +131,55 @@ Once this EC2 instance is created, you can:
 * Use **Nginx + SSL** for secure web access
 
 > ℹ️ Always keep your `.pem` private key secure and **never commit it** to GitHub!
+
+## 🔐 `key_name = var.key_name` — What Does It Mean?
+
+This line is inside your Terraform `aws_instance` resource block and plays a crucial role in how you **securely access** the EC2 instance:
+
+```hcl
+key_name = var.key_name
+```
+
+### ✅ Purpose
+
+* This line assigns a **Key Pair name** to the EC2 instance.
+* The EC2 instance uses this key for **SSH access** (i.e., remote login).
+* `var.key_name` is a **Terraform variable**, whose value is passed in from:
+
+  * `variables.tf`, or
+  * `terraform.tfvars`, or
+  * via the command line using `-var="key_name=..."`
+
+---
+
+### 🔧 How It Works
+
+#### 1. Define the variable (in `variables.tf`)
+
+```hcl
+variable "key_name" {
+  description = "AWS EC2 Key Pair name"
+}
+```
+
+#### 2. Reference the variable in `main.tf`
+
+```hcl
+key_name = var.key_name
+```
+
+#### 3. Pass the value when applying Terraform
+
+```bash
+./terraform.sh apply -var="key_name=my-aws-keypair"
+```
+
+**OR**, use a `terraform.tfvars` file:
+
+```hcl
+key_name = "my-aws-keypair"
+```
+
+---
+
+
