@@ -62,11 +62,11 @@ PORT=3000
 ### `Dockerfile`
 
 ```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY . .
-RUN npm install
-CMD ["node", "index.js"]
+FROM node:18-alpine               # Starts with a lightweight Node.js 18 base image built on Alpine Linux (fast and small).
+WORKDIR /app                     # Sets the working directory inside the container to /app. All subsequent commands (like COPY, RUN, CMD)                                           happen relative to this directory.
+COPY . .                          # Copies everything from the current build context (where docker build is run) into the container’s /app                                           folder.
+RUN npm install                    # Installs all Node.js dependencies listed in package.json.
+CMD ["node", "index.js"]           # The command that runs when a container is started. It launches your API via index.js.
 ```
 ## if Dockerfile is not in the root folder 
 ### Change Build Context & COPY Path
