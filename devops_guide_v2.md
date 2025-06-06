@@ -69,14 +69,21 @@ RUN npm install
 CMD ["node", "index.js"]
 ```
 ## if Dockerfile is not in the root folder 
-#Change Build Context & COPY Path
+### Change Build Context & COPY Path
 cd todo-api
+
 docker build -f devops_todo/docker/Dockerfile -t todo-api .
-But you also need to modify your Dockerfile like this:
+
+### But you also need to modify your Dockerfile like this:
+
 FROM node:18-alpine
+
 WORKDIR /app
+
 COPY ../../ .     # Go two levels up to copy everything from todo-api/
+
 RUN npm install
+
 CMD ["node", "index.js"]
 
 ### `.gitignore`
