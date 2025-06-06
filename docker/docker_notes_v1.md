@@ -34,6 +34,17 @@ Docker lets you package your application with everything it needs (code, runtime
 
 ---
 
+## 🖥️ Container vs Virtual Machine (VM)
+
+| Feature              | Container                               | Virtual Machine                          |
+|----------------------|------------------------------------------|-------------------------------------------|
+| **OS kernel**         | Shared with host                        | Separate full OS                          |
+| **Size**              | Very small (10–100MB)                   | Large (GBs)                               |
+| **Startup time**      | Seconds                                 | Minutes                                   |
+| **Performance**       | Near-native                             | Slower (hardware-level emulation)         |
+| **Example base image**| `alpine`, `ubuntu`, `node`, etc.        | Full Ubuntu ISO or Windows image          |
+
+
 ## 💡 Example Use Case
 
 You build a Node.js app and want to ensure it runs the same way on your laptop, a test server, and AWS. You create a Docker image, push it to Docker Hub, and then run containers anywhere.
