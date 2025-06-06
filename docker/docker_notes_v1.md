@@ -49,4 +49,31 @@ Docker lets you package your application with everything it needs (code, runtime
 
 You build a Node.js app and want to ensure it runs the same way on your laptop, a test server, and AWS. You create a Docker image, push it to Docker Hub, and then run containers anywhere.
 
+
+## 🔐 Handling `.env` Files in Docker
+
+If you're using a `.env` file (e.g., for `PORT=3000` or database credentials), the best practice is to:
+
+- ✅ **Exclude** it from the Docker image using `.dockerignore`
+- ✅ **Load** it at runtime using the `--env-file` flag
+
+---
+
+### 📁 1. Add `.env` to `.dockerignore`
+
+Create or update a `.dockerignore` file in your app's root (`todo-api/`) and add:
+
+
+This prevents the `.env` file from being copied into the image, keeping secrets secure and the image smaller.
+
+---
+
+### 🛠️ 2. Run Docker Container with `.env`
+
+Use the `--env-file` option when running the container to inject environment variables:
+
+```bash
+docker run --env-file .env -p 3000:3000 todo-api
+
+
 ---
