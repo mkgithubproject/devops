@@ -86,7 +86,7 @@ A complete DevOps pipeline for deploying a Node.js REST API using:
 
 1. Install Terraform
 2. Create `main.tf`, `variables.tf`, `outputs.tf`
-3. Configure AWS provider and resources:
+3. Configure AWS provider and resources: in main.tf
 
    * VPC (optional)
    * Security Group
