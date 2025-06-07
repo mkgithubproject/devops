@@ -153,7 +153,7 @@ output "public_ip" {
 
 ```bash
 #!/bin/bash
-docker run --rm -it \
+docker run --rm -it \                    # a seprate container from your app container
   -v $(pwd)/terraform:/workspace \
   -w /workspace \
   -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
