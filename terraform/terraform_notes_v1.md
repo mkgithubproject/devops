@@ -177,7 +177,19 @@ key_name = var.key_name
 **OR**, use a `terraform.tfvars` file:
 
 ```hcl
-key_name = "my-aws-keypair"
+key_name = "my-aws-keypair" | 
+-----------------------------------------
+## End ......
+
+
+-----------------------------Note------------------------------------ |
+variable "private_key_path" {
+  description = "Path to the private key file (.pem)"
+}
+These lines tell Terraform: |
+Hey, I'm expecting you to provide these values somewhere else.” |
+
+“Here’s what each variable means (description).”
 ```
 
 ---
