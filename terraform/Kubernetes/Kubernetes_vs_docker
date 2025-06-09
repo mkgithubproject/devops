@@ -115,7 +115,7 @@ kubectl apply -f deployment.yaml
 
 ---
 
-## 🧠 Summary
+## 🧐 Summary
 
 * **Docker**: Good for containerizing applications.
 * **Kubernetes**: Good for managing and scaling containers in production.
