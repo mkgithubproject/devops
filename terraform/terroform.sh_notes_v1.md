@@ -72,6 +72,9 @@ Gives execute permission to the script so it can be run like a regular command.
 
 ```bash
 ./terraform.sh plan -var="key_name=your-key" -var="private_key_path=/workspace/your-key.pem"
+OR
+./terraform.sh plan -var-file="terraform.tfvars"
+
 ```
 
 * Runs `terraform plan` inside the container.
